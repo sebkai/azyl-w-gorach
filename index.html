@@ -627,9 +627,7 @@
 
 <section class="hero">
   <div class="hero-slides">
-    <div class="hero-slide active" style="background-image:url('assets/hero-balia-noca.jpg')"></div>
-    <div class="hero-slide" style="background-image:url('assets/gallery-dom-zmierzch.jpg')"></div>
-    <div class="hero-slide" style="background-image:url('assets/gallery-salon.jpg')"></div>
+    <div class="hero-slide active" style="background-image:url('assets/gallery-salon.jpg')"></div>
   </div>
   <div class="hero-scrim"></div>
   <div class="wrap hero-grid">
@@ -1118,21 +1116,6 @@
     }
     onScroll();
     window.addEventListener('scroll', onScroll, { passive: true });
-  })();
-</script>
-
-<script>
-  (function () {
-    var slides = document.querySelectorAll('.hero-slide');
-    if (slides.length < 2) return;
-    var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if (reduceMotion) return;
-    var i = 0;
-    setInterval(function () {
-      slides[i].classList.remove('active');
-      i = (i + 1) % slides.length;
-      slides[i].classList.add('active');
-    }, 5500);
   })();
 </script>
 
