@@ -346,32 +346,6 @@
   .how .section-head h2 { color: var(--cream-ink); }
   .how .section-head p { color: var(--cream-ink-soft); }
 
-  /* ---------- Instagram ---------- */
-  .instagram { background: var(--paper); }
-  .instagram-track {
-    display: flex; gap: 16px; overflow-x: auto; overflow-y: hidden; scroll-snap-type: x mandatory;
-    padding-bottom: 6px; scrollbar-width: none; touch-action: pan-x;
-  }
-  .instagram-track::-webkit-scrollbar { display: none; }
-  .instagram-embed { scroll-snap-align: start; flex: 0 0 auto; width: 328px; max-width: 90vw; }
-  .instagram-embed iframe { border-radius: var(--radius) !important; }
-  .instagram-embed blockquote a {
-    display: flex; align-items: center; justify-content: center; height: 300px;
-    border: 1px solid rgba(22,32,26,0.14); border-radius: var(--radius);
-    color: var(--ink); text-decoration: none; font-size: 0.95rem; text-align: center; padding: 20px;
-  }
-
-  /* ---------- Location ---------- */
-  .location { background: var(--paper-warm); }
-  .location-grid { display: grid; grid-template-columns: 1fr; gap: 40px; }
-  @media (min-width: 860px) { .location-grid { grid-template-columns: 1fr 1fr; align-items: center; } }
-  .location-facts { list-style: none; margin-top: 28px; }
-  .location-facts li { display: flex; gap: 14px; padding: 14px 0; border-top: 1px solid rgba(22,32,26,0.12); font-size: 0.96rem; color: var(--ink-soft); }
-  .location-facts li:last-child { border-bottom: 1px solid rgba(22,32,26,0.12); }
-  .location-facts b { color: var(--ink); font-weight: 500; min-width: 108px; flex-shrink: 0; }
-  .location-art { border-radius: var(--radius); overflow: hidden; }
-  .location-art img { width: 100%; height: 100%; min-height: 320px; object-fit: cover; display: block; }
-
   /* ---------- Attractions ---------- */
   .attractions { background: var(--paper); }
   .attractions-grid { display: grid; grid-template-columns: 1fr; gap: 16px; }
@@ -878,56 +852,6 @@
         <p>Urodziny córki - dzieciaki cały dzień na ścianie wspinaczkowej i trampolinie, a my wieczorem nareszcie w balii w spokoju.</p>
         <cite>Natalia<span>Urodziny, 12 osób, sierpień</span></cite>
       </div>
-    </div>
-  </div>
-</section>
-
-<section class="instagram" id="instagram">
-  <div class="wrap">
-    <div class="section-head scroll-head">
-      <div>
-        <h2>Zobacz nas na Instagramie</h2>
-        <p>Najnowsze kadry z <a href="https://www.instagram.com/balenaskale/" target="_blank" rel="noopener">@balenaskale</a>.</p>
-      </div>
-      <div class="scroll-nav">
-        <button type="button" class="scroll-btn js-scroll-prev" data-target="instagramTrack" aria-label="Poprzednie posty">‹</button>
-        <button type="button" class="scroll-btn js-scroll-next" data-target="instagramTrack" aria-label="Następne posty">›</button>
-      </div>
-    </div>
-    <div class="instagram-track" id="instagramTrack">
-      <div class="instagram-embed">
-        <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DaH3ZECFBLF/" data-instgrm-version="14"><a href="https://www.instagram.com/p/DaH3ZECFBLF/" target="_blank" rel="noopener">Zobacz post na Instagramie</a></blockquote>
-      </div>
-      <div class="instagram-embed">
-        <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/Dae6H0DiGOC/" data-instgrm-version="14"><a href="https://www.instagram.com/p/Dae6H0DiGOC/" target="_blank" rel="noopener">Zobacz post na Instagramie</a></blockquote>
-      </div>
-      <div class="instagram-embed">
-        <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/Db7nxQhj13Z/" data-instgrm-version="14"><a href="https://www.instagram.com/p/Db7nxQhj13Z/" target="_blank" rel="noopener">Zobacz post na Instagramie</a></blockquote>
-      </div>
-      <div class="instagram-embed">
-        <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DbSddpkgNUp/" data-instgrm-version="14"><a href="https://www.instagram.com/p/DbSddpkgNUp/" target="_blank" rel="noopener">Zobacz post na Instagramie</a></blockquote>
-      </div>
-    </div>
-  </div>
-</section>
-<script async src="https://www.instagram.com/embed.js"></script>
-
-<section class="location">
-  <div class="wrap location-grid">
-    <div data-reveal="fade-right">
-      <div class="section-head" style="margin-bottom:0;">
-        <h2>Skawica 855, u podnóża Babiej Góry</h2>
-        <p>Dom stoi w Skawicy, w gminie Zawoja - kilkanaście minut od wyciągów i szlaków na Babią Górę. Wskazówki na ostatni, leśny odcinek drogi wysyłamy po potwierdzeniu rezerwacji, najlepiej pokonać go za dnia.</p>
-      </div>
-      <ul class="location-facts">
-        <li><b>Adres</b><span>Skawica 855, gmina Zawoja</span></li>
-        <li><b>Dojazd</b><span>Ostatnie 2 km drogą leśną, przejezdną dla większości aut osobowych.</span></li>
-        <li><b>Najbliższy sklep</b><span>Ok. 12 minut jazdy, warto zaopatrzyć się wcześniej.</span></li>
-        <li><b>Zasięg</b><span>Ograniczony - to część uroku, nie awaria sieci.</span></li>
-      </ul>
-    </div>
-    <div class="location-art" data-reveal="zoom-in">
-      <img src="assets/location-droga.jpg" alt="Żwirowa droga dojazdowa w lesie, w pobliżu domu" loading="lazy">
     </div>
   </div>
 </section>
