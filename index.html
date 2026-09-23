@@ -504,17 +504,17 @@
       initialized = true;
       try {
         var iframe = document.createElement('iframe');
-        iframe.id = 'ra-reservation-form-v2-f8bcfa0f1a0a31e53c9219b651fc140b';
+        iframe.id = 'ra-reservation-form-v2-b8aba9521acc45b50bf1c3becdf7655c';
         iframe.style.width = '100%';
         iframe.style.height = '100px';
         iframe.style.border = 'none';
         iframe.style.padding = '0';
-        iframe.src = 'https://roomadmin.pl/widget/reservation-v2/start?fh=844d811f286a70c9984bb90986a3a8bba58fa2b9&style=%7B%22color_accent%22%3A%22%23A1195B%22%2C%22color_bg%22%3A%22%23FFFFFF%22%2C%22color_panel_header%22%3A%22%23FFFFFF%22%2C%22color_panel_body%22%3A%22%23FFFFFF%22%2C%22rounded_corners%22%3A%22true%22%7D&filter=%7B%7D&lang=pl&hideDateSelector=0&hideSpecialOffers=0';
+        iframe.src = 'https://roomadmin.pl/widget/reservation-v2/start?fh=844d811f286a70c9984bb90986a3a8bba58fa2b9&style=%7B%22color_accent%22%3A%22%23A1195B%22%2C%22color_bg%22%3A%22%23FFFFFF%22%2C%22color_panel_header%22%3A%22%23FFFFFF%22%2C%22color_panel_body%22%3A%22%23FFFFFF%22%2C%22rounded_corners%22%3A%22true%22%7D&filter=%7B%22room_id_in%22%3A%5B%2297358%22%5D%7D&lang=pl&hideDateSelector=0&hideSpecialOffers=0';
         container.appendChild(iframe);
 
         function raMessageReceiver(event) {
           if (iframe) {
-            if (!event.data.sender || "reservation-form-f8bcfa0f1a0a31e53c9219b651fc140b" !== event.data.sender) { return; }
+            if (!event.data.sender || "reservation-form-b8aba9521acc45b50bf1c3becdf7655c" !== event.data.sender) { return; }
             if (event.data.height) { iframe.style.height = (event.data.height + 10) + "px"; }
             if (event.data.event && event.data.event.name === "widget.scrollup.requested") {
               try { iframe.scrollIntoView({behavior: "smooth", block: "start"}); } catch (e) { }
@@ -532,7 +532,7 @@
 
         function setup() {
           try {
-            iframe.contentWindow.postMessage({ location: window.location.toString(), setup: { autoHeight: true, senderName: "reservation-form-f8bcfa0f1a0a31e53c9219b651fc140b" } }, "*");
+            iframe.contentWindow.postMessage({ location: window.location.toString(), setup: { autoHeight: true, senderName: "reservation-form-b8aba9521acc45b50bf1c3becdf7655c" } }, "*");
           } catch (e) { }
         }
         setInterval(setup, 1000);
