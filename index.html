@@ -968,7 +968,8 @@
       <div class="info-line"><b>Telefon</b><span>+48 690 085 785</span></div>
       <div class="info-line"><b>E-mail</b><span>kontakt@azylwgorach.pl</span></div>
     </div>
-    <form class="booking" action="mailto:kontakt@azylwgorach.pl" method="post" enctype="text/plain" data-reveal="fade-left">
+    <form class="booking" id="bookingForm" action="https://formspree.io/f/xkjgbglo" method="POST" data-reveal="fade-left">
+      <input type="hidden" name="_subject" value="Nowe zapytanie ze strony Azyl w Górach">
       <div class="form-row two">
         <div class="field">
           <label for="name">Imię i nazwisko</label>
@@ -993,10 +994,47 @@
         <label for="msg">Wiadomość</label>
         <textarea id="msg" name="Wiadomość" rows="3" placeholder="Dodatkowe pytania..."></textarea>
       </div>
-      <button type="submit" class="btn btn-primary">Wyślij zapytanie</button>
+      <button type="submit" class="btn btn-primary" id="bookingSubmit">Wyślij zapytanie</button>
+      <p id="bookingFormMsg" style="margin-top:14px; font-size:0.92rem; display:none;"></p>
     </form>
   </div>
 </section>
+<script>
+  (function () {
+    var form = document.getElementById('bookingForm');
+    var submitBtn = document.getElementById('bookingSubmit');
+    var msgEl = document.getElementById('bookingFormMsg');
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Wysyłanie...';
+      msgEl.style.display = 'none';
+
+      fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { 'Accept': 'application/json' }
+      }).then(function (response) {
+        if (response.ok) {
+          form.reset();
+          msgEl.textContent = 'Dziękujemy! Wiadomość została wysłana, odpiszemy najszybciej jak to możliwe.';
+          msgEl.style.color = 'var(--ember-soft)';
+          submitBtn.textContent = 'Wyślij zapytanie';
+        } else {
+          throw new Error('Formspree error');
+        }
+      }).catch(function () {
+        msgEl.textContent = 'Coś poszło nie tak. Spróbujcie ponownie lub zadzwońcie do nas bezpośrednio.';
+        msgEl.style.color = '#e08a52';
+        submitBtn.textContent = 'Wyślij zapytanie';
+      }).finally(function () {
+        submitBtn.disabled = false;
+        msgEl.style.display = 'block';
+      });
+    });
+  })();
+</script>
 
 <footer class="site">
   <div class="wrap">
