@@ -779,9 +779,29 @@
         <p>Gorąca balia z widokiem na góry czeka na Was na miejscu.</p>
       </div>
     </div>
-    <div class="hero-actions" style="margin-top:40px;">
-      <a href="#" class="btn btn-primary js-check-availability">Sprawdź dostępne terminy</a>
+    <div style="max-width:640px;margin:48px auto 0;background:var(--paper);border-radius:6px;padding:20px;">
+      <iframe id="ra-calendar-single-d4bf399f8c73abe3e5324209df9bfd89" style="width: 100%; height: 600px; border: none; padding: 0;" src="//roomadmin.pl/widget/calendar-single/index?fh=844d811f286a70c9984bb90986a3a8bba58fa2b9&rid=111033&disableReservationButton=1&style=%7B%22color_accent%22%3A%22%23A1195B%22%2C%22color_bg%22%3A%22%23FFFFFF%22%2C%22color_header_text%22%3A%22%23333%22%2C%22color_day_available%22%3A%22%232E7D32%22%2C%22color_day_occupied%22%3A%22%23E53935%22%2C%22color_day_past%22%3A%22%23D3D3D3%22%7D&n=6&lang=pl"></iframe>
     </div>
+    <script>
+      try {
+        (function () {
+          var iframe = window.document.getElementById('ra-calendar-single-d4bf399f8c73abe3e5324209df9bfd89');
+          function raMessageReceiver(event) {
+            if (!iframe) { return; }
+            if (!event.data.sender || "ra-calendar-single-d4bf399f8c73abe3e5324209df9bfd89" !== event.data.sender) { return; }
+            if (event.data.height) { iframe.style.height = (event.data.height + 10) + "px"; }
+          }
+          window.addEventListener("message", raMessageReceiver, false);
+          function setup() {
+            try {
+              iframe.contentWindow.postMessage({ location: window.location.toString(), setup: { autoHeight: true, senderName: "ra-calendar-single-d4bf399f8c73abe3e5324209df9bfd89" } }, "*");
+            } catch (e) { }
+          }
+          setInterval(setup, 1000);
+          iframe.addEventListener("load", setup);
+        })();
+      } catch (e) { }
+    </script>
   </div>
 </section>
 
